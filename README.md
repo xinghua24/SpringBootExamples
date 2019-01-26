@@ -1,2 +1,2 @@
 # Spring Boot Examples
-* [hello-world] - Hello World Spring Boot App
+* [hello-world](hello-world) - Hello World Spring Boot App
