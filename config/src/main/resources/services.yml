@@ -1,0 +1,4 @@
+myservice:
+  url: https://myservice
+  username: user
+  password: password
