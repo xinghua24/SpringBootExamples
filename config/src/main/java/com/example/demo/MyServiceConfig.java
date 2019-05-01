@@ -6,12 +6,12 @@ import org.springframework.stereotype.Component;
 import lombok.Data;
 
 @Component
-@ConfigurationProperties( prefix = "myservice")
+@ConfigurationProperties(prefix = "myservice", ignoreUnknownFields = true)
 @Data
 public class MyServiceConfig {
     private String url;
-    
+
     private String username;
-    
+
     private String password;
 }
