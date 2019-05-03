@@ -30,7 +30,7 @@ public class ConfigController {
     // http://localhost:8080/app-name
     @RequestMapping("/app-name")
     public String getAppName() {
-        return env.getProperty("app.name");
+        return env.getProperty("app.intro");
     }
     
     // http://localhost:8080/myProp

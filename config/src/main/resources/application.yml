@@ -1,5 +1,8 @@
 app:
-  name: my-app
+  name: my-spring-boot-app
+  author: xing
+  intro: This is ${app.name} created by ${app.author}
+
 
 spring:
   datasource:
