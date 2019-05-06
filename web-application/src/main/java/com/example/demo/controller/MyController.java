@@ -21,6 +21,7 @@ import com.example.demo.model.Greeting;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 @RestController
 @Api(value="GreetingAPI")
@@ -31,20 +32,23 @@ public class MyController {
 	@RequestMapping(value = "/hello",
 			method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	@ApiOperation(value="simple hello")
+	
 	public ResponseEntity<Greeting> hello() {
 		return ResponseEntity.status(HttpStatus.OK).body(new Greeting("Hello"));
 	}
 
 
 	// GET with query parameter
-	// GET localhost:8080/greeting/sayHello?name=world
+	// GET localhost:8080/greeting/sayHello?firstname=world
 	@RequestMapping(value = "/sayHello", 
-			params = "name",
+			params = "firstName",
 			method = RequestMethod.GET, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Greeting> sayHello(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return ResponseEntity.status(HttpStatus.OK).body(new Greeting("Hello"));
+	@ApiOperation(value="simply say hello to someone")
+	public ResponseEntity<Greeting> sayHello(
+	        @ApiParam(value="Whom to say hello to")
+	        @RequestParam(value = "firstName") String firstName) {
+		return ResponseEntity.status(HttpStatus.OK).body(new Greeting(firstName));
 	}
 
 	// GET with path parameter
@@ -53,7 +57,7 @@ public class MyController {
 			method = RequestMethod.GET, 
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Greeting> sayHelloPath(@PathVariable(value = "name") String name) {
-		return ResponseEntity.status(HttpStatus.OK).body(new Greeting("Hello"));
+		return ResponseEntity.status(HttpStatus.OK).body(new Greeting(name));
 	}
 	
 	// GET with query parameters as Map
