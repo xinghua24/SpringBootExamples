@@ -5,13 +5,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.demo.MyServiceConfig;
+import com.example.demo.MyService;
 
 @RestController
 public class ConfigController {
     @Autowired
-    private MyServiceConfig myServiceConfig;
+    private MyService myService;
     
     @Autowired
     private Environment env;
@@ -23,8 +22,8 @@ public class ConfigController {
     
     // http://localhost:8080/myServiceConfig
     @RequestMapping("/myServiceConfig")
-    public MyServiceConfig getConfig() {
-        return myServiceConfig;
+    public MyService getConfig() {
+        return myService;
     }
     
     // http://localhost:8080/app-name

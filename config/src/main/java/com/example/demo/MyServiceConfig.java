@@ -1,17 +1,14 @@
 package com.example.demo;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-import lombok.Data;
-
-@Component
-@ConfigurationProperties(prefix = "myservice", ignoreUnknownFields = true)
-@Data
+@Configuration
 public class MyServiceConfig {
-    private String url;
-
-    private String username;
-
-    private String password;
+    @Bean
+    @ConfigurationProperties(prefix = "myservice", ignoreUnknownFields = true)
+    public MyService myService() {
+        return new MyService();
+    }
 }
