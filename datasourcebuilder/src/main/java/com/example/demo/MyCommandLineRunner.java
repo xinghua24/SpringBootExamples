@@ -22,8 +22,6 @@ public class MyCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        jdbcTemplate.execute("CREATE TABLE TEST(ID INT PRIMARY KEY, NAME VARCHAR(255));");
-
         // list tables in the databse
         DatabaseMetaData md = ds.getConnection().getMetaData();
         String[] types = { "TABLE" };
@@ -31,6 +29,7 @@ public class MyCommandLineRunner implements CommandLineRunner {
         while (rs.next()) {
             LOG.info("Table in Database: {}", rs.getString(3));
         }
+        
         LOG.info("datasource: {}", ds.toString());
         LOG.info("jdbcTemplate: {}", jdbcTemplate.toString());
     }
