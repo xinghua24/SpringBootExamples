@@ -10,3 +10,8 @@
 * [actuator](actuator)
 * [docker](docker)
 * [mongodb](mongodb)
+* [error-handling](error-handling)
+
+
+# Spring Boot Security
+* [spring-security-basics](spring-security-basics)
