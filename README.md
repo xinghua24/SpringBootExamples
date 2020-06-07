@@ -11,7 +11,7 @@
 * [docker](docker)
 * [mongodb](mongodb)
 * [error-handling](error-handling)
-
+* [Thymeleaf](Thymeleaf)
 
 # Spring Boot Security
 * [spring-security-basics](spring-security-basics)
