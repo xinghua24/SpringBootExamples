@@ -12,6 +12,8 @@
 * [mongodb](mongodb)
 * [error-handling](error-handling)
 * [Thymeleaf](Thymeleaf)
+* [data-redis](data-redis)
 
 # Spring Boot Security
 * [spring-security-basics](spring-security-basics)
+* [FormLogin](FormLogin)
