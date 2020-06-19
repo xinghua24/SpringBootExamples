@@ -9,15 +9,15 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 @Configuration
 @EnableRedisRepositories
 public class RedisConfig {
-    @Bean
-    public LettuceConnectionFactory jedisConnectionFactory() {
-        return new LettuceConnectionFactory("127.0.0.1", 6379);
-    }
+    //@Bean
+    //public LettuceConnectionFactory jedisConnectionFactory() {
+    //    return new LettuceConnectionFactory("127.0.0.1", 6379);
+    //}
 
-    @Bean
-    RedisTemplate<?, ?> redisTemplate() {
-        RedisTemplate<byte[], byte[]> redisTemplate = new RedisTemplate<>();
-        redisTemplate.setConnectionFactory(jedisConnectionFactory());
-        return redisTemplate;
-    }
+//    @Bean
+//    RedisTemplate<?, ?> redisTemplate() {
+//        RedisTemplate<byte[], byte[]> redisTemplate = new RedisTemplate<>();
+//        redisTemplate.setConnectionFactory(jedisConnectionFactory());
+//        return redisTemplate;
+//    }
 }

@@ -17,3 +17,4 @@
 # Spring Boot Security
 * [spring-security-basics](spring-security-basics)
 * [FormLogin](FormLogin)
+* [SpringSessionRedis](SpringSessionRedis)
