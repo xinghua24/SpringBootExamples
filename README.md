@@ -18,3 +18,4 @@
 * [spring-security-basics](spring-security-basics)
 * [FormLogin](FormLogin)
 * [SpringSessionRedis](SpringSessionRedis)
+* [SpringSessionJdbc](SpringSessionJdbc)
