@@ -26,20 +26,20 @@ class HelloController {
 		return "Hello, " + principal.getAttribute("name");
 	}
 
-	@GetMapping(value="/getAuthentication", produces="application/json")
-	public String getAuthentication(OAuth2AuthenticationToken authenticaiton) {
-		return  authenticaiton.toString();
+	@GetMapping("/getAuthentication")
+	public ResponseEntity<String> getAuthentication(OAuth2AuthenticationToken authenticaiton) {
+		return   ResponseEntity.ok().body(authenticaiton.toString());
 	}
 
-	// get login, id, avatar url, etc
-	@GetMapping(value="/getUserInfo", produces="application/json")
+	// get user info including name, picture and email
+	@GetMapping("/getUserInfo")
 	public String getUserInfo(OAuth2AuthenticationToken authentication){
 		OAuth2AuthorizedClient client = authorizedClientService.loadAuthorizedClient(
 				authentication.getAuthorizedClientRegistrationId(),
 				authentication.getPrincipal().getName());
 
 		// get UserInfoEndpoint from ClientRegistration
-		// For Github, It is defined in CommonOAuth2Provider class. The value should be https://api.github.com/user
+		// For Google, It is defined in CommonOAuth2Provider class. The value should be https://www.googleapis.com/oauth2/v3/userinfo
 		String userInfoEndpointUri = client.getClientRegistration()
 				.getProviderDetails().getUserInfoEndpoint().getUri();
 
