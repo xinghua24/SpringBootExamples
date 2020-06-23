@@ -19,3 +19,4 @@
 * [FormLogin](FormLogin)
 * [SpringSessionRedis](SpringSessionRedis)
 * [SpringSessionJdbc](SpringSessionJdbc)
+* [OAuth2Github](OAuth2Github)
