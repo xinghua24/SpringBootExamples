@@ -31,27 +31,20 @@ class HelloController {
 		return  authenticaiton.toString();
 	}
 
-	// get login, id, avatar url, etc
-	@GetMapping(value="/getUserInfo", produces="application/json")
-	public String getUserInfo(OAuth2AuthenticationToken authentication){
+	@GetMapping(value = "/getEmails", produces = "application/json")
+	public String getEmails(OAuth2AuthenticationToken authentication) {
 		OAuth2AuthorizedClient client = authorizedClientService.loadAuthorizedClient(
 				authentication.getAuthorizedClientRegistrationId(),
 				authentication.getPrincipal().getName());
 
-		// get UserInfoEndpoint from ClientRegistration
-		// For Github, It is defined in CommonOAuth2Provider class. The value should be https://api.github.com/user
-		String userInfoEndpointUri = client.getClientRegistration()
-				.getProviderDetails().getUserInfoEndpoint().getUri();
+		String getEmailUrl = "https://api.github.com/user/emails";
 
-		// send request to UserInfoEndpoint to get user info
-		if(!StringUtils.isEmpty(userInfoEndpointUri)) {
-			RestTemplate restTemplate = new RestTemplate();
-			HttpHeaders headers = new HttpHeaders();
-			headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + client.getAccessToken().getTokenValue());
-			HttpEntity entity = new HttpEntity("", headers);
-			ResponseEntity response  = restTemplate.exchange(userInfoEndpointUri, HttpMethod.GET, entity, String.class);
-			return response.getBody().toString();
-		}
-		return "Error";
+		// send HTTP request with Bearer token to get user emails
+		RestTemplate restTemplate = new RestTemplate();
+		HttpHeaders headers = new HttpHeaders();
+		headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + client.getAccessToken().getTokenValue());
+		HttpEntity entity = new HttpEntity("", headers);
+		ResponseEntity response = restTemplate.exchange(getEmailUrl, HttpMethod.GET, entity, String.class);
+		return response.getBody().toString();
 	}
 }

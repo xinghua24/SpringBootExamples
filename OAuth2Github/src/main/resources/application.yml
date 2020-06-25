@@ -6,3 +6,4 @@ spring:
           github:
             clientId: <client-id>
             clientSecret: <client-secret>
+            scope: read:user, user:email
