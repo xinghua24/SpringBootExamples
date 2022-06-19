@@ -13,6 +13,7 @@
 * [error-handling](error-handling)
 * [Thymeleaf](Thymeleaf)
 * [data-redis](data-redis)
+* [RestTemplateExample](RestTemplateExample)
 
 # Spring Boot Security
 * [spring-security-basics](spring-security-basics)
