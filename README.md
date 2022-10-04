@@ -14,6 +14,7 @@
 * [Thymeleaf](Thymeleaf)
 * [data-redis](data-redis)
 * [RestTemplateExample](RestTemplateExample)
+* [async](async)
 
 # Spring Boot Security
 * [spring-security-basics](spring-security-basics)
